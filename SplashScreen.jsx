@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native'; // Image와 StyleSheet 모듈 추가
+import { View, Image, StyleSheet, Text } from 'react-native'; 
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login'); // 스플래시 화면을 로그인 화면으로 교체
-    }, 2000); // 2초 후에 로그인 화면으로 교체 (시간은 필요에 따라 조정 가능)
+      navigation.replace('Home'); 
+    }, 2000); 
 
-    return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머 해제
+    return () => clearTimeout(timer); 
   }, [navigation]);
 
   return (
