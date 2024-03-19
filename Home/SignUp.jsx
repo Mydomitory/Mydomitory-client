@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
+import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 
 const SignUp = () => {
   const [password, setPassword] = useState('');
@@ -59,29 +59,25 @@ const SignUp = () => {
         placeholder="이메일"
       />
 
-      <Text style={styles.text}>호실</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="402"
-      />
+      <View style={styles.passInputContent}>
+        <Text style={styles.text}>비밀번호</Text>
+        <TextInput
+          style={styles.passInput}
+          placeholder="비밀번호"
+          secureTextEntry={true}
+          onChangeText={handlePasswordChange}
+        />
 
-      <Text style={styles.text}>비밀번호</Text>
-      <TextInput
-        style={styles.passInput}
-        placeholder="비밀번호"
-        secureTextEntry={true}
-        onChangeText={handlePasswordChange}
-      />
 
-      <Text style={styles.text}>비밀번호 확인</Text>
-      <TextInput
-        style={styles.passInput}
-        placeholder="비밀번호 확인"
-        secureTextEntry={true}
-        onChangeText={handleConfirmPasswordChange}
-      />
-      {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
+        <TextInput
+          style={styles.passInput}
+          placeholder="비밀번호 확인"
+          secureTextEntry={true}
+          onChangeText={handleConfirmPasswordChange}
+        />
 
+        {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
+      </View>
       <TouchableOpacity onPress={handleSignUpButtonPress} style={styles.SignUp}>
         <Text style={styles.SignUpBtn}>가입하기</Text>
       </TouchableOpacity>
@@ -94,11 +90,11 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: 'white',
     paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingTop: 25,
   },
   input: {
     height: 45,
-    marginBottom: 20,
+    marginBottom: 25,
     borderColor: "#D9D9D9",
     borderWidth: 1,
     paddingHorizontal: 10,
@@ -109,9 +105,12 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
   },
+  passInputContent:{
+    marginTop:20,
+  },
   passInput: {
     height: 45,
-    marginBottom: 20,
+    marginBottom: 10,
     borderColor: "#D9D9D9",
     borderWidth: 1,
     paddingHorizontal: 10,
@@ -120,8 +119,8 @@ const styles = StyleSheet.create({
   SignUp: {
     backgroundColor: "#FFC61B",
     borderRadius: 10,
-    padding: 10,
-    marginTop: 10,
+    padding: 13,
+    marginTop: 30,
   },
   SignUpBtn: {
     textAlign: 'center',
