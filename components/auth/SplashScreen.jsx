@@ -1,40 +1,27 @@
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native'; 
+import { View, Image, Text } from 'react-native'; 
+import Splashcss from '../../styles/Splashcss';
+import { useNavigation } from '@react-navigation/native'; 
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen = () => {
+  const navigation = useNavigation(); 
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.replace('Home'); 
-    }, 2000); 
+    if (navigation) { 
+      const timer = setTimeout(() => {
+        navigation.replace('Start'); 
+      }, 2000); 
 
-    return () => clearTimeout(timer); 
+      return () => clearTimeout(timer); 
+    }
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
-      <Image source={require('../../assets/logo.png')} style={styles.logo} />
-      <Text style={styles.text}>MY Domitory</Text>
+    <View style={Splashcss.container}>
+      <Image source={require('../../assets/logo.png')} style={Splashcss.logo} />
+      <Text style={Splashcss.text}>MY Domitory</Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white', 
-  },
-  logo: {
-    width: 100, 
-    height: 100, 
-  },
-  text:{
-    color:"#F5CA00",
-    marginTop: '10%',
-    fontSize: 20,
-    fontWeight: '800',
-  }
-});
 
 export default SplashScreen;

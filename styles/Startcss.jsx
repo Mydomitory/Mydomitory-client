@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 
-const Homecss = StyleSheet.create({
+const Startcss = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
@@ -54,4 +54,4 @@ const Homecss = StyleSheet.create({
   },
 });
 
-export default Homecss;
+export default Startcss;
