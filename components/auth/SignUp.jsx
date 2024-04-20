@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { View, ScrollView, Text, TouchableOpacity, TextInput } from 'react-native';
 import SignUpcss from "../../styles/SignUpcss";
+import { useNavigation } from '@react-navigation/native';
 
 const SignUp = () => {
+  const navigation = useNavigate();
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -21,7 +24,7 @@ const SignUp = () => {
     }
 
     console.log("가입완료");
-    // 가입 처리 로직을 이곳에 추가하세요.
+    navigation.navigate('Login');
   };
 
   const handlePasswordChange = (text) => {
