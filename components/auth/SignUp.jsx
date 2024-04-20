@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, ScrollView, Text, TouchableOpacity, TextInput } from 'react-native';
+import SignUpcss from "../../styles/SignUpcss";
 
 const SignUp = () => {
   const [password, setPassword] = useState('');
@@ -40,29 +41,29 @@ const SignUp = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.text}>학교</Text>
+    <ScrollView contentContainerStyle={SignUpcss.container}>
+      <Text style={SignUpcss.text}>학교</Text>
       <TextInput
-        style={styles.input}
+        style={SignUpcss.input}
         placeholder="학교"
       />
 
-      <Text style={styles.text}>이름</Text>
+      <Text style={SignUpcss.text}>이름</Text>
       <TextInput
-        style={styles.input}
+        style={SignUpcss.input}
         placeholder="이름"
       />
 
-      <Text style={styles.text}>이메일</Text>
+      <Text style={SignUpcss.text}>이메일</Text>
       <TextInput
-        style={styles.input}
+        style={SignUpcss.input}
         placeholder="이메일"
       />
 
-      <View style={styles.passInputContent}>
-        <Text style={styles.text}>비밀번호</Text>
+      <View style={SignUpcss.passInputContent}>
+        <Text style={SignUpcss.text}>비밀번호</Text>
         <TextInput
-          style={styles.passInput}
+          style={SignUpcss.passInput}
           placeholder="비밀번호"
           secureTextEntry={true}
           onChangeText={handlePasswordChange}
@@ -70,67 +71,21 @@ const SignUp = () => {
 
 
         <TextInput
-          style={styles.passInput}
+          style={SignUpcss.passInput}
           placeholder="비밀번호 확인"
           secureTextEntry={true}
           onChangeText={handleConfirmPasswordChange}
         />
 
-        {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
+        {passwordError ? <Text style={SignUpcss.errorText}>{passwordError}</Text> : null}
       </View>
-      <TouchableOpacity onPress={handleSignUpButtonPress} style={styles.SignUp}>
-        <Text style={styles.SignUpBtn}>가입하기</Text>
+      <TouchableOpacity onPress={handleSignUpButtonPress} style={SignUpcss.SignUp}>
+        <Text style={SignUpcss.SignUpBtn}>가입하기</Text>
       </TouchableOpacity>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: 'white',
-    paddingHorizontal: 16,
-    paddingTop: 25,
-  },
-  input: {
-    height: 45,
-    marginBottom: 25,
-    borderColor: "#D9D9D9",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-  },
-  text: {
-    marginLeft: 5,
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  passInputContent:{
-    marginTop:20,
-  },
-  passInput: {
-    height: 45,
-    marginBottom: 10,
-    borderColor: "#D9D9D9",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-  },
-  SignUp: {
-    backgroundColor: "#FFC61B",
-    borderRadius: 10,
-    padding: 13,
-    marginTop: 30,
-  },
-  SignUpBtn: {
-    textAlign: 'center',
-    color: "#5D5858",
-    fontWeight: 'bold',
-  },
-  errorText: {
-    color: 'red',
-    marginBottom: 10,
-  }
-});
+
 
 export default SignUp;

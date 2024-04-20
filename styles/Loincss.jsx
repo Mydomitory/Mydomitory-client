@@ -1,40 +1,6 @@
-import React from "react";
-import { View, StyleSheet, Image, Text, TextInput,TouchableOpacity } from 'react-native';
+import { StyleSheet } from "react-native";
 
-
-const Login = () => {
-  const handleLoginButtonPress = () =>{
-    console.log('로그인 완');
-  }
-  return (
-    <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
-      <Text style={styles.titleText}>My Domitory</Text>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>Login your Account</Text>
-      </View>
-
-      <View style={styles.TextInputContainer}>
-        <TextInput
-          style={styles.emailInput}
-          placeholder="이메일"
-        />
-
-        <TextInput
-          style={styles.passInput}
-          placeholder="비밀번호"
-        />
-      </View>
-
-      <TouchableOpacity onPress={handleLoginButtonPress} style={styles.Login}>
-        <Text style={styles.LoginBtn}>로그인</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-
-const styles = StyleSheet.create({
+const Loincss = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
@@ -95,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Loincss;
